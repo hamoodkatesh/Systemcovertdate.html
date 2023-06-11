@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Foreign to Hebrew Date Converter</title>
+  <script>
+    function convertToHebrewDate() {
+      var foreignDate = document.getElementById("foreignDate").value;
+      var date = new Date(foreignDate);
+      var options = {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long',
+        era: 'long',
+        timeZone: 'UTC',
+        timeZoneName: 'short'
+      };
+      var hebrewDate = date.toLocaleDateString('he-IL-u-ca-hebrew', options);
+      document.getElementById("hebrewDate").innerHTML = hebrewDate;
+    }
+  </script>
+</head>
+<body>
+  <h1>Foreign to Hebrew Date Converter</h1>
+  <label for="foreignDate">Enter a foreign date:</label>
+  <input type="date" id="foreignDate">
+  <button onclick="convertToHebrewDate()">Convert</button>
+  <br>
+  <p id="hebrewDate"></p>
+</body>
+</html>
